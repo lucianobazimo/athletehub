@@ -23,6 +23,7 @@ export default defineConfig({
   */
   providers: [
     () => import('@adonisjs/core/providers/app_provider'),
+    () => import('#providers/app_provider'),
     () => import('@adonisjs/core/providers/hash_provider'),
     {
       file: () => import('@adonisjs/core/providers/repl_provider'),
@@ -44,8 +45,8 @@ export default defineConfig({
   |
   */
   preloads: [
-    () => import('./src/infrastructure/adonis/routes.js'),
-    () => import('./src/infrastructure/adonis/kernel.js'),
+    () => import('#infrastructure/adonis/routes'),
+    () => import('#infrastructure/adonis/kernel'),
   ],
 
   /*
