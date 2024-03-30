@@ -18,6 +18,7 @@ export default class UserUsername extends ValueObject<Props> {
 
   static isValidProps({ username }: Props): boolean {
     const { string } = this.validator
+    console.log(username)
     return string(username).hasLengthBetweenOrEqual(UserUsername.MIN_WIDTH, UserUsername.MAX_WIDTH)
   }
 

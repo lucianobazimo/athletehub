@@ -22,9 +22,8 @@ export class RegisterUserHandler
     const userIdResult = UserId.create(Uid().value())
     if (userIdResult.isFail()) return Fail(userIdResult.error())
 
-    const usernameResult = UserUsername.create(data.username)
+    const usernameResult = UserUsername.create({ username: data.username })
     if (usernameResult.isFail()) return Fail(usernameResult.error())
-    console.log(usernameResult.value())
 
     const lastnameResult = UserLastname.create(data.lastname)
     if (lastnameResult.isFail()) return Fail(lastnameResult.error())

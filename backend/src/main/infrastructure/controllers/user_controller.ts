@@ -8,6 +8,8 @@ export default class UserController {
   constructor(private _registerUserHandler: RegisterUserHandler) {}
 
   async registerUser({ request }: HttpContext) {
+    // TODO: add validator for request payload
+
     const registerUserRequest = new RegisterUserRequest({
       ...(request.body() as any),
     })
