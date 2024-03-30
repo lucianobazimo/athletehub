@@ -1,4 +1,4 @@
-import env from '../src/infrastructure/adonis/env.js'
+import env from '../src/shared/infrastructure/adonis/env.js'
 import app from '@adonisjs/core/services/app'
 import { defineConfig, targets } from '@adonisjs/core/logger'
 

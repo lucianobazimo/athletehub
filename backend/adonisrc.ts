@@ -45,8 +45,8 @@ export default defineConfig({
   |
   */
   preloads: [
-    () => import('#infrastructure/adonis/routes'),
-    () => import('#infrastructure/adonis/kernel'),
+    () => import('./src/shared/infrastructure/adonis/routes'),
+    () => import('./src/shared/infrastructure/adonis/kernel'),
   ],
 
   /*

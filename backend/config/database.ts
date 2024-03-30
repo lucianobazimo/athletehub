@@ -1,4 +1,4 @@
-import env from '../src/infrastructure/adonis/env.js'
+import env from '../src/shared/infrastructure/adonis/env.js'
 import { defineConfig } from '@adonisjs/lucid'
 
 const dbConfig = defineConfig({
