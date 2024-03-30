@@ -4,8 +4,8 @@
     "rootDir": "./",
     "outDir": "./build",
     "paths": {
-      "#domain/*": ["/src/domain/*.js"],
-      "#infrastructure/*": ["/src/infrastructure/*.js"],
+      "#shared/*": ["/src/shared/*.js"],
+      "#main/*": ["/src/main/*.js"],
       "#controllers/*": ["/src/infrastructure/controllers/*.js"],
       "#middleware/*": ["/src/infrastructure/middleware/*.js"],
       "#config/*": ["/config/*.js"]
