@@ -9,11 +9,14 @@ export default class UserPassword extends ValueObject<Props> {
     super(props)
   }
 
-  create({ password }: Props): Result<UserPassword> {
-    if (!password) return Fail('Password cannot be null or empty')
-
+  static isValidProps({ password }: Props) {
     const expression: RegExp = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-    if (!expression.test(password))
+
+    return expression.test(password)
+  }
+
+  static create({ password }: Props): Result<UserPassword> {
+    if (!UserPassword.isValidProps({ password }))
       return Fail(
         'Password must contain minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character'
       )

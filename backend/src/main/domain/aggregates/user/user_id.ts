@@ -1,7 +1,7 @@
-import { Fail, Ok, Uid, UID, ValueObject } from 'rich-domain'
+import { Fail, Ok, UID, ValueObject } from 'rich-domain'
 
 interface Props {
-  id: UID
+  id: string
 }
 
 export default class UserId extends ValueObject<Props> {
@@ -9,12 +9,16 @@ export default class UserId extends ValueObject<Props> {
     super(props)
   }
 
-  new() {
-    return Ok(new UserId({ id: Uid() }))
+  validation(value: string) {
+    return UserId.isValidProps({ id: value })
   }
 
-  create(id: UID) {
-    if (!id) return Fail('Id must not be empty or null')
+  static isValidProps({ id }: Props): boolean {
+    return Boolean(id)
+  }
+
+  static create({ id }: Props) {
+    if (!UserId.isValidProps({ id })) return Fail('Id must not be empty or null')
 
     return Ok(new UserId({ id }))
   }

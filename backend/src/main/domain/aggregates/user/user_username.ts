@@ -18,7 +18,6 @@ export default class UserUsername extends ValueObject<Props> {
 
   static isValidProps({ username }: Props): boolean {
     const { string } = this.validator
-    console.log(username)
     return string(username).hasLengthBetweenOrEqual(UserUsername.MIN_WIDTH, UserUsername.MAX_WIDTH)
   }
 
@@ -28,6 +27,10 @@ export default class UserUsername extends ValueObject<Props> {
         `Username must have a length between ${UserUsername.MIN_WIDTH} and ${UserUsername.MAX_WIDTH}`
       )
 
+    return Ok(new UserUsername({ username }))
+  }
+
+  static hydrate({ username }: Props): Result<UserUsername> {
     return Ok(new UserUsername({ username }))
   }
 }

@@ -5,23 +5,36 @@ interface Props {
 }
 
 export default class UserLastname extends ValueObject<Props> {
-  private readonly MIN_LENGTH = 3
-  private readonly MAX_LENGTH = 20
+  private static readonly MIN_LENGTH = 3
+  private static readonly MAX_LENGTH = 20
 
   private constructor(props: Props) {
     super(props)
   }
 
-  create({ lastname }: Props): Result<UserLastname> {
-    if (!lastname) return Fail('Lastname cannot be null or empty')
+  validation(value: string): boolean {
+    return UserLastname.isValidProps({ lastname: value })
+  }
 
-    if (lastname.length < this.MIN_LENGTH)
-      return Fail(`Lastname must have at least ${this.MIN_LENGTH} characters`)
-    if (lastname.length > this.MAX_LENGTH)
-      return Fail(`Lastname must have less than ${this.MAX_LENGTH} characters`)
+  static isValidProps({ lastname }: Props) {
+    const { string } = this.validator
+    return string(lastname).hasLengthBetweenOrEqual(
+      UserLastname.MIN_LENGTH,
+      UserLastname.MAX_LENGTH
+    )
+  }
 
-    console.log('hello')
+  static create({ lastname }: Props): Result<UserLastname> {
+    if (!this.isValidProps({ lastname })) {
+      return Fail(
+        `Lastname must have a length between ${UserLastname.MIN_LENGTH} and ${UserLastname.MAX_LENGTH}`
+      )
+    }
 
+    return Ok(new UserLastname({ lastname }))
+  }
+
+  static hydrate({ lastname }: Props): Result<UserLastname> {
     return Ok(new UserLastname({ lastname }))
   }
 }

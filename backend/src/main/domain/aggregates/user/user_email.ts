@@ -9,11 +9,17 @@ export default class UserEmail extends ValueObject<Props> {
     super(props)
   }
 
-  create({ email }: Props): Result<UserEmail> {
-    if (!email) return Fail('Email cannot be null or empty')
+  validation(value: string) {
+    return UserEmail.isValidProps({ email: value })
+  }
 
+  static isValidProps({ email }: Props) {
     const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-    if (!expression.test(email)) return Fail('Email is not in the right format')
+    return expression.test(email)
+  }
+
+  static create({ email }: Props): Result<UserEmail> {
+    if (!UserEmail.isValidProps({ email })) return Fail('Email must be of type john@doe.com')
 
     return Ok(new UserEmail({ email }))
   }

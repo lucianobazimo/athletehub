@@ -25,16 +25,16 @@ export class RegisterUserHandler
     const usernameResult = UserUsername.create({ username: data.username })
     if (usernameResult.isFail()) return Fail(usernameResult.error())
 
-    const lastnameResult = UserLastname.create(data.lastname)
+    const lastnameResult = UserLastname.create({ lastname: data.lastname })
     if (lastnameResult.isFail()) return Fail(lastnameResult.error())
 
-    const firstnameResult = UserFirstname.create(data.firstname)
+    const firstnameResult = UserFirstname.create({ firstname: data.firstname })
     if (firstnameResult.isFail()) return Fail(firstnameResult.error())
 
-    const emailResult = UserEmail.create(data.email)
+    const emailResult = UserEmail.create({ email: data.email })
     if (emailResult.isFail()) return Fail(emailResult.error())
 
-    const passwordResult = UserPassword.create(data.password)
+    const passwordResult = UserPassword.create({ password: data.password })
     if (passwordResult.isFail()) return Fail(passwordResult.error())
 
     const user = User.create({
@@ -48,9 +48,11 @@ export class RegisterUserHandler
       createdAt: DateTime.utc(),
     })
 
-    await this._userRepository.register(user.value())
+    const response = await this._userRepository.register(user.value())
 
-    return Ok(new RegisterUserResponse(user.value().id))
+    if (response.isFail()) return Fail(response.error())
+
+    return Ok(new RegisterUserResponse(Uid(response.value())))
   }
 }
 
