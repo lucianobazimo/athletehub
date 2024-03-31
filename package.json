@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^5.0.0"
+  }
+}

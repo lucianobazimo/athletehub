@@ -1,18 +1,23 @@
-import { test } from '@japa/runner'
 import UserEmail from '#main/domain/aggregates/user/user_email'
+import { describe, expect, it } from '@jest/globals'
 
-test.group('user lastname', () => {
-  test('create userLastname should success', async ({ assert }) => {
+describe('user email', () => {
+  it('create email should success', () => {
     const email = 'test@test.com'
-    const firstnameResult = UserEmail.create({ email })
-
-    assert.isOk(firstnameResult.value())
+    const emailResult = UserEmail.create({ email })
+    expect(emailResult.value().get('email')).toBe(email)
   })
 
-  test('create userLastname should fail', async ({ assert }) => {
+  it('create email without TLD should fail', () => {
     const email = 'test@test'
-    const userFirstnameResult = UserEmail.create({ email })
+    const emailResult = UserEmail.create({ email })
 
-    assert.isNotOk(userFirstnameResult.value())
+    expect(emailResult.isFail()).toBeTruthy()
+  })
+
+  it('create email with bad TLD should failed', () => {
+    const email = 'test@test.c'
+    const emailResult = UserEmail.create({ email })
+    expect(emailResult.isFail()).toBeTruthy()
   })
 })

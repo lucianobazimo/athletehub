@@ -1,18 +1,39 @@
-import { test } from '@japa/runner'
 import UserPassword from '#main/domain/aggregates/user/user_password'
+import { describe, expect, it } from '@jest/globals'
 
-test.group('user password', () => {
-  test('create userPassword should success', async ({ assert }) => {
+describe('user password', () => {
+  it('create userPassword should success', () => {
     const password = '12&Aqw34'
-    const firstnameResult = UserPassword.create({ password })
+    const passwordResult = UserPassword.create({ password })
 
-    assert.isOk(firstnameResult.value())
+    expect(passwordResult.value().get('password')).toBe(password)
   })
 
-  test('create userPassword should fail', async ({ assert }) => {
+  it('create userPassword with less than 8 characters should fail', () => {
     const password = 'test'
-    const userFirstnameResult = UserPassword.create({ password })
+    const passwordResult = UserPassword.create({ password })
 
-    assert.isNotOk(userFirstnameResult.value())
+    expect(passwordResult.isFail()).toBeTruthy()
+  })
+
+  it('create userPassword without uppercase should fail', () => {
+    const password = 'testtest1'
+    const passwordResult = UserPassword.create({ password })
+
+    expect(passwordResult.isFail()).toBeTruthy()
+  })
+
+  it('create userPassword without special chars should fail', () => {
+    const password = 'Testtest1'
+    const passwordResult = UserPassword.create({ password })
+
+    expect(passwordResult.isFail()).toBeTruthy()
+  })
+
+  it('create userPassword without numbers should fail', () => {
+    const password = 'Testtest'
+    const passwordResult = UserPassword.create({ password })
+
+    expect(passwordResult.isFail()).toBeTruthy()
   })
 })

@@ -1,17 +1,31 @@
-import { test } from '@japa/runner'
 import UserLastname from '#main/domain/aggregates/user/user_lastname'
+import { describe, expect, it } from '@jest/globals'
 
-test.group('user lastname', () => {
-  test('create userLastname should success', async ({ assert }) => {
+describe('user lastname', () => {
+  it('create userLastname should success', () => {
     const lastname = 'John'
-    const firstnameResult = UserLastname.create({ lastname })
+    const lastnameResult = UserLastname.create({ lastname })
 
-    assert.isOk(firstnameResult.value())
+    expect(lastnameResult.value().get('lastname')).toBe(lastname)
   })
 
-  test('create userLastname should fail', async ({ assert }) => {
-    const userFirstnameResult = UserLastname.create({ lastname: '' })
+  it('create empty userLastname should fail', () => {
+    const lastnameResult = UserLastname.create({ lastname: '' })
 
-    assert.isNotOk(userFirstnameResult.value())
+    expect(lastnameResult.isFail()).toBeTruthy()
+  })
+
+  it('create userLastname with less than 3 characters should fail', () => {
+    const lastname = 'Jo'
+    const lastnameResult = UserLastname.create({ lastname })
+
+    expect(lastnameResult.isFail()).toBeTruthy()
+  })
+
+  it('create userLastname with more than 20 characters should fail', () => {
+    const lastname = 'John Doe John Doe John Doe John Doe'
+    const lastnameResult = UserLastname.create({ lastname })
+
+    expect(lastnameResult.isFail()).toBeTruthy()
   })
 })

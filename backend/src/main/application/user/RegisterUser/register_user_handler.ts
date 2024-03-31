@@ -19,7 +19,7 @@ export class RegisterUserHandler
   private constructor(private _userRepository: UserRepository) {}
 
   async execute(data: RegisterUserRequest): Promise<Result<RegisterUserResponse>> {
-    const userIdResult = UserId.create(Uid().value())
+    const userIdResult = UserId.create({ id: crypto.randomUUID() })
     if (userIdResult.isFail()) return Fail(userIdResult.error())
 
     const usernameResult = UserUsername.create({ username: data.username })

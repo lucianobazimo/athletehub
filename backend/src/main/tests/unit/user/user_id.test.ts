@@ -1,11 +1,17 @@
-import { test } from '@japa/runner'
 import UserId from '#main/domain/aggregates/user/user_id'
-import { Uid } from 'rich-domain'
+import { describe, it, expect } from '@jest/globals'
 
-test.group('user id', () => {
-  test('create userId should success', async ({ assert }) => {
-    const userId = UserId.create({ id: Uid() })
+describe('user id', () => {
+  it('create userId should success', () => {
+    const id = crypto.randomUUID()
+    const userIdResult = UserId.create({ id })
 
-    assert.isOk(userId.value())
+    expect(userIdResult.value().get('id')).toBe(id)
+  })
+
+  it('create userId should success', () => {
+    const userIdResult = UserId.create({ id: '' })
+
+    expect(userIdResult.isFail()).toBeTruthy()
   })
 })

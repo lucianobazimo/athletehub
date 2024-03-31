@@ -1,4 +1,4 @@
-import { Fail, Ok, UID, ValueObject } from 'rich-domain'
+import { Fail, Ok, Result, ValueObject } from 'rich-domain'
 
 interface Props {
   id: string
@@ -14,17 +14,16 @@ export default class UserId extends ValueObject<Props> {
   }
 
   static isValidProps({ id }: Props): boolean {
-    return Boolean(id)
+    return id.length > 0
   }
 
-  static create({ id }: Props) {
+  static create({ id }: Props): Result<UserId> {
     if (!UserId.isValidProps({ id })) return Fail('Id must not be empty or null')
 
     return Ok(new UserId({ id }))
   }
 
-  hydrate(id: UID) {
-    // @ts-ignore
-    return new Ok(new UserId({ id }))
+  static hydrate({ id }: Props): Result<UserId> {
+    return Ok(new UserId({ id }))
   }
 }
