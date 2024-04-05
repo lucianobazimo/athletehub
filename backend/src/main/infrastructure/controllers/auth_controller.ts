@@ -16,4 +16,6 @@ export default class UserController {
 
     return { success: result.isOk(), message: result.error(), data: result.value().id.value() }
   }
+
+  async loginUser({ request }: HttpContext) {}
 }
