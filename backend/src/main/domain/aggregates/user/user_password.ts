@@ -23,4 +23,8 @@ export default class UserPassword extends ValueObject<Props> {
 
     return Ok(new UserPassword({ password }))
   }
+
+  static hydrate({ password }: Props): Result<UserPassword> {
+    return Ok(new UserPassword({ password }))
+  }
 }

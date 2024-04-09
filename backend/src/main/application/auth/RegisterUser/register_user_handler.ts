@@ -1,6 +1,6 @@
-import { Fail, IUseCase, Ok, Result, Uid } from 'rich-domain'
-import RegisterUserRequest from '#main/application/user/RegisterUser/register_user_request'
-import RegisterUserResponse from '#main/application/user/RegisterUser/register_user_response'
+import { Fail, IUseCase, Ok, Result } from 'rich-domain'
+import RegisterUserRequest from '#main/application/auth/RegisterUser/register_user_request'
+import RegisterUserResponse from '#main/application/auth/RegisterUser/register_user_response'
 import { UserRepository } from '#main/domain/repositories/user_repository'
 import UserId from '#main/domain/aggregates/user/user_id'
 import UserUsername from '#main/domain/aggregates/user/user_username'
@@ -52,7 +52,7 @@ export class RegisterUserHandler
 
     if (response.isFail()) return Fail(response.error())
 
-    return Ok(new RegisterUserResponse(Uid(response.value())))
+    return Ok(new RegisterUserResponse(response.value()))
   }
 }
 

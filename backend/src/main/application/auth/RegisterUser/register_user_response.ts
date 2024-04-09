@@ -1,9 +1,7 @@
-import { UID } from 'rich-domain'
-
 export default class RegisterUserResponse {
-  id: UID<string>
+  id: string
 
-  constructor(id: UID<string>) {
+  constructor(id: string) {
     this.id = id
   }
 }

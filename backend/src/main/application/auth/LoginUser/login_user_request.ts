@@ -1,22 +1,13 @@
-interface RegisterUserRequestData {
-  firstname: string
-  username: string
-  lastname: string
+interface LoginUserRequestData {
   email: string
   password: string
 }
 
-export default class RegisterUserRequest {
-  firstname: string
-  username: string
-  lastname: string
+export default class LoginUserRequest {
   email: string
   password: string
 
-  constructor(data: RegisterUserRequestData) {
-    this.firstname = data.firstname
-    this.lastname = data.lastname
-    this.username = data.username
+  constructor(data: LoginUserRequestData) {
     this.email = data.email
     this.password = data.password
   }

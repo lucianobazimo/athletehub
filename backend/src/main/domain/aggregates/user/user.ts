@@ -15,7 +15,7 @@ interface UserProps {
   email: UserEmail
   password: UserPassword
   createdAt?: DateTime
-  updatedAt?: DateTime
+  updatedAt?: DateTime | null
 }
 
 export default class User extends Aggregate<UserProps> {
