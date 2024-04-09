@@ -63,6 +63,5 @@
   "eslintConfig": {
     "extends": "@adonisjs/eslint-config/app"
   },
-  "prettier": "@adonisjs/prettier-config",
   "module": "index.ts"
 }
