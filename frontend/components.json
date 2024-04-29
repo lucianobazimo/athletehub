@@ -4,11 +4,11 @@
   "typescript": true,
   "tailwind": {
     "config": "tailwind.config.js",
-    "css": "src/assets/css/tailwind.css",
-    "baseColor": "slate",
+    "css": "src/assets/main.css",
+    "baseColor": "zinc",
     "cssVariables": true
   },
-  "framework": "nuxt",
+  "framework": "vite",
   "aliases": {
     "components": "@/core",
     "utils": "@/lib/utils"
