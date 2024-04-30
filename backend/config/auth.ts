@@ -1,6 +1,6 @@
-import { defineConfig } from '@adonisjs/auth'
-import { InferAuthEvents, Authenticators } from '@adonisjs/auth/types'
-import { sessionGuard, sessionUserProvider } from '@adonisjs/auth/session'
+import { defineConfig } from '@adonisjs/auth';
+import { InferAuthEvents, Authenticators } from '@adonisjs/auth/types';
+import { sessionGuard, sessionUserProvider } from '@adonisjs/auth/session';
 
 const authConfig = defineConfig({
   default: 'web',
@@ -12,9 +12,9 @@ const authConfig = defineConfig({
       }),
     }),
   },
-})
+});
 
-export default authConfig
+export default authConfig;
 
 /**
  * Inferring types from the configured auth

@@ -1,29 +1,29 @@
-import { Fail, Ok, Result, ValueObject } from 'rich-domain'
+import { Fail, Ok, Result, ValueObject } from 'rich-domain';
 
 interface Props {
-  id: string
+  id: string;
 }
 
 export default class UserId extends ValueObject<Props> {
   private constructor(props: Props) {
-    super(props)
+    super(props);
   }
 
   validation(value: string) {
-    return UserId.isValidProps({ id: value })
+    return UserId.isValidProps({ id: value });
   }
 
   static isValidProps({ id }: Props): boolean {
-    return id.length > 0
+    return id.length > 0;
   }
 
   static create({ id }: Props): Result<UserId> {
-    if (!UserId.isValidProps({ id })) return Fail('Id must not be empty or null')
+    if (!UserId.isValidProps({ id })) return Fail('Id must not be empty or null');
 
-    return Ok(new UserId({ id }))
+    return Ok(new UserId({ id }));
   }
 
   static hydrate({ id }: Props): Result<UserId> {
-    return Ok(new UserId({ id }))
+    return Ok(new UserId({ id }));
   }
 }

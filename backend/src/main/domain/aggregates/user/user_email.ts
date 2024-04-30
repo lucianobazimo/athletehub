@@ -1,30 +1,29 @@
-import { Fail, Ok, Result, ValueObject } from 'rich-domain'
+import { Fail, Ok, Result, ValueObject } from 'rich-domain';
 
 interface Props {
-  email: string
+  email: string;
 }
 
 export default class UserEmail extends ValueObject<Props> {
   private constructor(props: Props) {
-    super(props)
+    super(props);
   }
 
   validation(value: string) {
-    return UserEmail.isValidProps({ email: value })
+    return UserEmail.isValidProps({ email: value });
   }
 
   static isValidProps({ email }: Props) {
-    const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-    return expression.test(email)
+    const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return expression.test(email);
   }
 
   static create({ email }: Props): Result<UserEmail> {
-    if (!UserEmail.isValidProps({ email })) return Fail('Email must be of type john@doe.com')
-
-    return Ok(new UserEmail({ email }))
+    if (!UserEmail.isValidProps({ email })) return Fail('Email must be of type john@doe.com');
+    return Ok(new UserEmail({ email }));
   }
 
   static hydrate({ email }: Props): Result<UserEmail> {
-    return Ok(new UserEmail({ email }))
+    return Ok(new UserEmail({ email }));
   }
 }

@@ -1,5 +1,5 @@
-import env from '../src/shared/infrastructure/adonis/env.js'
-import { defineConfig } from '@adonisjs/lucid'
+import env from '../src/shared/infrastructure/adonis/env.js';
+import { defineConfig } from '@adonisjs/lucid';
 
 const dbConfig = defineConfig({
   connection: 'postgres',
@@ -19,6 +19,6 @@ const dbConfig = defineConfig({
       },
     },
   },
-})
+});
 
-export default dbConfig
+export default dbConfig;

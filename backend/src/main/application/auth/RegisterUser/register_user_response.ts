@@ -1,7 +1,7 @@
 export default class RegisterUserResponse {
-  id: string
+  id: string;
 
   constructor(id: string) {
-    this.id = id
+    this.id = id;
   }
 }

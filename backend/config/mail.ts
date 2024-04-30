@@ -1,9 +1,9 @@
-import env from '#shared/infrastructure/adonis/env'
-import { defineConfig, transports } from '@adonisjs/mail'
+import env from '#shared/infrastructure/adonis/env';
+import { defineConfig, transports } from '@adonisjs/mail';
 
 const mailConfig = defineConfig({
   default: 'resend',
-  
+
   /**
    * A static address for the "from" property. It will be
    * used unless an explicit from address is set on the
@@ -13,7 +13,7 @@ const mailConfig = defineConfig({
     address: 'eperform.solution@gmail.com',
     name: 'EPerform Solution',
   },
-  
+
   /**
    * A static address for the "reply-to" property. It will be
    * used unless an explicit replyTo address is set on the
@@ -35,4 +35,4 @@ const mailConfig = defineConfig({
       baseUrl: 'https://api.resend.com',
     }),
   },
-})
+});

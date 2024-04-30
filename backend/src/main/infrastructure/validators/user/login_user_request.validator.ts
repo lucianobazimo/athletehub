@@ -1,4 +1,4 @@
-import vine from '@vinejs/vine'
+import vine from '@vinejs/vine';
 
 export default class LoginUserRequestValidator {
   static execute() {
@@ -7,6 +7,6 @@ export default class LoginUserRequestValidator {
         email: vine.string().email().trim(),
         password: vine.string().trim(),
       })
-    )
+    );
   }
 }
