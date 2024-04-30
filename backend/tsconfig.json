@@ -11,5 +11,5 @@
       "#middleware/*": ["/src/infrastructure/middleware/*.js"],
       "#config/*": ["/config/*.js"]
     }
-  },
+  }
 }

@@ -6,11 +6,4 @@ import { Result } from 'rich-domain'
 
 export abstract class UserRepository {
   abstract register(user: User): Promise<Result<string>>
-  abstract login({
-    email,
-    password,
-  }: {
-    email: UserEmail
-    password: UserPassword
-  }): Promise<Result<UserModel>>
 }

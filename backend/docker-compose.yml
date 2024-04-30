@@ -1,12 +1,12 @@
-version: "3.9"
-name: "adonis_app"
+version: '3.9'
+name: 'adonis_app'
 
 services:
   database:
     image: postgres:16.2
     restart: always
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgre
