@@ -55,6 +55,8 @@
     },
     "register": "Register",
     "registerYourself": "Register",
-    "impossible": "Registering have failed"
+    "impossible": "Registering have failed",
+    "emailVerification": "A verification email will be sent at the email address you advise",
+    "errorDescription": "An error happened during the registering. Pleasy try again."
   }
 }
