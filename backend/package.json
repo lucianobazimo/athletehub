@@ -17,6 +17,7 @@
   "imports": {
     "#shared/*": "./src/shared/*.js",
     "#main/*": "./src/main/*.js",
+    "#team/*": "./src/team/*js",
     "#controllers/*": "./src/infrastructure/controllers/*.js",
     "#middleware/*": "./src/infrastructure/middleware/*.js",
     "#providers/*": "./providers/*.js",

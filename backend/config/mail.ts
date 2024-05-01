@@ -1,7 +1,7 @@
 import env from '#shared/infrastructure/adonis/env';
 import { defineConfig, transports } from '@adonisjs/mail';
 
-const mailConfig = defineConfig({
+export default defineConfig({
   default: 'resend',
 
   /**

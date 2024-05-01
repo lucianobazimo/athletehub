@@ -2,7 +2,9 @@ import { DateTime } from 'luxon';
 import { withAuthFinder } from '@adonisjs/auth';
 import hash from '@adonisjs/core/services/hash';
 import { compose } from '@adonisjs/core/helpers';
-import { BaseModel, column } from '@adonisjs/lucid/orm';
+import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm';
+import Team from '#team/infrastructure/models/team.';
+import type { HasMany } from '@adonisjs/lucid/types/relations';
 
 const AuthFinder = withAuthFinder(() => hash.use('argon'), {
   uids: ['email'],
@@ -33,4 +35,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null;
+
+  @hasMany(() => Team)
+  declare teams: HasMany<typeof Team>
 }
