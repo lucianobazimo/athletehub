@@ -47,7 +47,7 @@ export class RegisterUserHandler
       updatedAt: DateTime.utc(),
       createdAt: DateTime.utc(),
     });
-    
+
     const response = await this._userRepository.register(user.value());
 
     if (response.isFail()) return Fail(response.error());

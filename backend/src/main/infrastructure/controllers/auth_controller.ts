@@ -10,16 +10,22 @@ import LoginUserRequestValidator from '#main/infrastructure/validators/user/logi
 export default class AuthController {
   constructor(private _registerUserHandler: RegisterUserHandler) {}
 
-  async registerUser({ request }: HttpContext) {
+  async registerUser({ request, response }: HttpContext) {
     const payload = await request.validateUsing(RegisterUserRequestValidator.execute());
     const registerUserRequest = new RegisterUserRequest({ ...payload });
 
     const result = await this._registerUserHandler.execute(registerUserRequest);
 
-    return { success: result.isOk(), message: result.error(), data: result.value() ? result.value().id : null };
+    response.status(result.isOk() ? 200 : 400);
+    return {
+      success: result.isOk(),
+      message: result.error(),
+      data: result.value() ? result.value().id : null,
+    };
   }
 
   async loginUser({ request, auth, response }: HttpContext) {
+    console.log(request.body());
     const payload = await request.validateUsing(LoginUserRequestValidator.execute());
 
     const user = await UserModel.verifyCredentials(payload.email, payload.password);
