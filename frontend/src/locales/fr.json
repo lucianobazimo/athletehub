@@ -1,0 +1,19 @@
+{
+  "form": {
+    "validation": {
+      "required": "Ce champ est requis"
+    }
+  },
+  "login": {
+    "form": {
+      "email": {
+        "placeholder": "john{'@'}doe.com",
+        "label": "Votre adresse e-mail"
+      },
+      "password": {
+        "label": "Votre mot de passe",
+        "placeholder": "Entrez votre mot de passe..."
+      }
+    }
+  }
+}
