@@ -18,6 +18,14 @@ const router = createRouter({
       meta: {
         layout: 'AuthLayout'
       }
+    },
+    {
+      name: 'Dashboard',
+      path: '/',
+      component: () => import('@/views/dashboard/HomeView.vue'),
+      meta: {
+        layout: 'DashboardLayout'
+      }
     }
   ]
 });

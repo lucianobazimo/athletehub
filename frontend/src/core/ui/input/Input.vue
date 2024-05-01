@@ -37,8 +37,8 @@ const modelValue = useVModel(props, 'modelValue', emits, {
       "
     />
 
-    <div class="h-3">
-      <span class="text-xs text-red-500" v-if="isError && fieldErrors.length">{{
+    <div class="min-h-3">
+      <span class="text-xs leading-3 text-red-500" v-if="isError && fieldErrors.length">{{
         fieldErrors[0].$message
       }}</span>
     </div>

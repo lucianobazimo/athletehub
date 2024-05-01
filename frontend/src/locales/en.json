@@ -1,19 +1,60 @@
 {
   "form": {
     "validation": {
-      "required": "This field is required"
+      "required": "This field is required",
+      "sameAs": "Field must be the same",
+      "email": "Wrong email format",
+      "minLength": "The field must contain at least {length} characters",
+      "alpha": "The field can contain only letters",
+      "password": "The password requires an uppercase, lowercase, number and special character"
     }
   },
   "login": {
     "form": {
       "email": {
         "placeholder": "john{'@'}doe.com",
-        "label": "Your email address"
+        "label": "Email address"
       },
       "password": {
-        "label": "Your password",
+        "label": "Password",
         "placeholder": "Type your password..."
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "johndoe10"
+      },
+      "firsname": {
+        "label": "Firstname"
+      },
+      "firstname": {
+        "placeholder": "John"
+      },
+      "lastname": {
+        "label": "Lastname",
+        "placeholder": "Doe"
+      },
+      "passwordRepeat": {
+        "placeholder": "Repeat your password",
+        "label": "Repeat your password"
       }
-    }
+    },
+    "login": "Login",
+    "google": "Google",
+    "linkedin": "Linkedin",
+    "noAccount": {
+      "description": "No account ?",
+      "register": "Register yourself"
+    },
+    "impossible": "Error while login",
+    "invalidCredentials": "Wrong credentials. Please retry"
+  },
+  "register": {
+    "haveAccount": {
+      "description": "Already have an account ?",
+      "login": "Login yourself"
+    },
+    "register": "Register",
+    "registerYourself": "Register",
+    "impossible": "Registering have failed"
   }
 }

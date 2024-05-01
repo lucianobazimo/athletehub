@@ -1,19 +1,63 @@
 {
   "form": {
     "validation": {
-      "required": "Ce champ est requis"
+      "required": "Ce champ est requis",
+      "email": "Format d'email invalide",
+      "sameAs": "Les champs doivent être identiques",
+      "minLength": "Le champ doit contenir au minimum {length} caractères",
+      "alpha": "Le champ ne peut contenir que des lettres",
+      "password": "Le mot de passe doit contenir une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
     }
   },
   "login": {
     "form": {
       "email": {
         "placeholder": "john{'@'}doe.com",
-        "label": "Votre adresse e-mail"
+        "label": "Adresse e-mail"
       },
       "password": {
-        "label": "Votre mot de passe",
+        "label": "Mot de passe",
         "placeholder": "Entrez votre mot de passe..."
+      },
+      "username": {
+        "label": "Nom d'utilisateur",
+        "placeholder": "johndoe10"
+      },
+      "firsname": {
+        "label": "Prénom"
+      },
+      "firstname": {
+        "placeholder": "John"
+      },
+      "lastname": {
+        "label": "Nom",
+        "placeholder": "Doe"
+      },
+      "passwordRepeat": {
+        "placeholder": "Répétez votre mot de passe...",
+        "label": "Vérification du mot de passe"
       }
-    }
+    },
+    "login": "Connexion",
+    "linkedin": "Linkedin",
+    "google": "Google",
+    "noAccount": {
+      "description": "Vous n'avez pas de compte ?",
+      "register": "Inscrivez-vous"
+    },
+    "impossible": "Connexion impossible",
+    "invalidCredentials": "Indentifiants incorrects. Veuillez réessayer"
+  },
+  "register": {
+    "haveAccount": {
+      "description": "Vous avez déjà un compte ?",
+      "login": "Connectez-vous"
+    },
+    "register": "Inscrivez-vous",
+    "registerYourself": "S'inscrire",
+    "errorDescription": "Une erreur est survenue lors de l'inscription. Veuillez réessayer.",
+    "impossible": "L'inscription a échoué",
+    "success": "L'inscription a été effectuée",
+    "emailVerification": "Un email de vérification va vous être envoyé à l'adresse email indiquée"
   }
 }

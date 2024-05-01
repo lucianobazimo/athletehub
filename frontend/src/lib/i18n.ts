@@ -4,7 +4,7 @@ import en from '@/locales/en.json';
 
 const i18n = createI18n({
   locale: 'fr',
-  fallbackLocale: 'fr',
+  fallbackLocale: 'en',
   globalInjection: true,
   legacy: false,
   availableLocales: ['fr', 'en'],
