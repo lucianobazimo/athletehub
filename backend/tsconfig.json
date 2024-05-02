@@ -2,8 +2,10 @@
   "extends": "@adonisjs/tsconfig/tsconfig.app.json",
   "compilerOptions": {
     "strictPropertyInitialization": false,
-    "rootDir": "./",
+    "rootDir": ".",
     "outDir": "./build",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
     "paths": {
       "#shared/*": ["/src/shared/*.js"],
       "#main/*": ["/src/main/*.js"],

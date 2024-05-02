@@ -3,8 +3,9 @@ import { withAuthFinder } from '@adonisjs/auth';
 import hash from '@adonisjs/core/services/hash';
 import { compose } from '@adonisjs/core/helpers';
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm';
-import Team from '#team/infrastructure/models/team.';
+import Team from '#team/infrastructure/models/team';
 import type { HasMany } from '@adonisjs/lucid/types/relations';
+import TeamUserAccess from '#team/infrastructure/models/team_user_access';
 
 const AuthFinder = withAuthFinder(() => hash.use('argon'), {
   uids: ['email'],
@@ -37,5 +38,8 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare updatedAt: DateTime | null;
 
   @hasMany(() => Team)
-  declare teams: HasMany<typeof Team>
+  declare teams: HasMany<typeof Team>;
+
+  @hasMany(() => TeamUserAccess)
+  declare teamsUserAccesses: HasMany<typeof TeamUserAccess>
 }

@@ -25,13 +25,17 @@ export default class AuthController {
   }
 
   async loginUser({ request, auth, response }: HttpContext) {
-    console.log(request.body());
     const payload = await request.validateUsing(LoginUserRequestValidator.execute());
 
     const user = await UserModel.verifyCredentials(payload.email, payload.password);
 
     await auth.use('web').login(user);
 
+    response.plainCookie('isAuthenticated', true, {
+      secure: false,
+      httpOnly: false,
+      encode: false,
+    });
     response.status(200);
     return { success: true, data: auth.user?.id };
   }
@@ -39,6 +43,11 @@ export default class AuthController {
   async logoutUser({ auth, response }: HttpContext) {
     try {
       await auth.use('web').logout();
+      response.plainCookie('isAuthenticated', false, {
+        encode: false,
+        httpOnly: false,
+        secure: false,
+      });
       response.status(200);
     } catch {
       response.status(500);

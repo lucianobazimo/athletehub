@@ -1,16 +1,14 @@
-import { ValueObject } from "rich-domain";
+import { ValueObject } from 'rich-domain';
 
 export enum TeamSportEnum {
   Football = 1,
   Handball = 2,
   Basketball = 3,
-  Rugby = 4
+  Rugby = 4,
 }
 
 type TeamSportProps = {
-  sport: TeamSportEnum
-}
+  sport: TeamSportEnum;
+};
 
-export default class TeamSport extends ValueObject<TeamSportProps> {
-
-}
+export default class TeamSport extends ValueObject<TeamSportProps> {}
