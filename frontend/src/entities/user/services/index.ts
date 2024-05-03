@@ -2,7 +2,7 @@ import type {
   IUser,
   LoginUserRequest,
   LoginUserResponse,
-  RegisterUserRequest
+  RegisterUserRequest,
 } from '@/entities/user/types';
 import api from '@/lib/api';
 
@@ -11,3 +11,5 @@ export const registerUserMutation = async (data: RegisterUserRequest): Promise<I
 
 export const loginUserQuery = async (data: LoginUserRequest): Promise<LoginUserResponse> =>
   await api.post('/auth/login', data).then((res) => res.data);
+
+export const checkTokenStatus = async (): Promise<void> => await api.post('/auth/checkToken');

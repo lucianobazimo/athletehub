@@ -46,4 +46,8 @@ export default class AuthController {
     await UserModel.accessTokens.delete(user, token.identifier)
     return { success: true }
   }
+
+  async checkTokenStatus({ response }: HttpContext) {
+    return response
+  }
 }

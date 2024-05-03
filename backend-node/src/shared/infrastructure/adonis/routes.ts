@@ -8,6 +8,9 @@ router
     router.post('/register', [AuthController, 'registerUser'])
     router.post('/login', [AuthController, 'loginUser'])
     router.post('/logout', [AuthController, 'logoutUser'])
+    router
+      .post('/checkToken', [AuthController, 'checkTokenStatus'])
+      .use(middleware.auth({ guards: ['api'] }))
   })
   .prefix('/auth')
 

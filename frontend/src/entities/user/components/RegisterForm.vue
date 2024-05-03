@@ -97,34 +97,34 @@ const form = reactive({
   firstname: '',
   lastname: '',
   password: '',
-  passwordRepeat: ''
+  passwordRepeat: '',
 });
 
 const formRules = computed(() => ({
   email: {
     required: rules.required,
-    email: rules.email
+    email: rules.email,
   },
   username: {
     required: rules.required,
-    minLength: rules.minLength(4)
+    minLength: rules.minLength(4),
   },
   firstname: {
     required: rules.required,
-    alpha: rules.alpha
+    alpha: rules.alpha,
   },
   lastname: {
     required: rules.required,
-    alpha: rules.alpha
+    alpha: rules.alpha,
   },
   password: {
     required: rules.required,
-    password: rules.password(form.password)
+    password: rules.password(form.password),
   },
   passwordRepeat: {
     required: rules.required,
-    sameAs: rules.sameAs(form.password)
-  }
+    sameAs: rules.sameAs(form.password),
+  },
 }));
 
 const formValidation = useVuelidate(formRules, form);
@@ -141,18 +141,18 @@ const handleFormSubmit = async () => {
       username: form.username,
       firstname: form.firstname,
       lastname: form.lastname,
-      password: form.password
+      password: form.password,
     });
 
     toast({
       title: t('register.success'),
-      description: t('register.emailVerification')
+      description: t('register.emailVerification'),
     });
   } catch {
     toast({
       variant: 'destructive',
       title: t('register.impossible'),
-      description: t('register.errorDescription')
+      description: t('register.errorDescription'),
     });
   }
 };

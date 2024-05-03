@@ -38,27 +38,29 @@ import { useCookies } from '@vueuse/integrations/useCookies';
 import Input from '@/core/ui/input/Input.vue';
 import Label from '@/core/ui/label/Label.vue';
 import Button from '@/core/ui/button/Button.vue';
+import { useAuthStore } from '@/stores/auth';
 
 const { t } = useI18n();
 const { rules } = useFormRules();
 const { isPending, mutateAsync } = useLoginMutation();
 const { toast } = useToast();
 const cookies = useCookies();
+const { setIsAuthenticated } = useAuthStore();
 const router = useRouter();
 
 const form = reactive({
   email: '',
-  password: ''
+  password: '',
 });
 
 const formRules = computed(() => ({
   email: {
     required: rules.required,
-    email: rules.email
+    email: rules.email,
   },
   password: {
-    required: rules.required
-  }
+    required: rules.required,
+  },
 }));
 
 const formValidation = useVuelidate(formRules, form);
@@ -73,13 +75,14 @@ const handleFormSubmit = async () => {
     const response = await mutateAsync(form);
     cookies.set('token', response.token);
     cookies.set('tokenExpirationDate', response.expiresAt);
+    setIsAuthenticated(true);
 
-    router.push({ name: 'Dashboard'});
+    router.push({ name: 'Dashboard' });
   } catch {
     toast({
       variant: 'destructive',
       title: 'Connexion impossible',
-      description: 'Veuillez vérifier vos identifiants'
+      description: 'Veuillez vérifier vos identifiants',
     });
   }
 };
