@@ -6,14 +6,8 @@ const router = createRouter({
   routes: [...routes]
 });
 
-
 router.beforeEach((to, from, next) => {
-  const cookies = document.cookie.split(';');
-  const isAuthenticated = cookies.find(cookie => cookie.includes("isAuthenticated"));
-  
-  console.log(isAuthenticated)
-
-  next()
+  next();
 });
 
 export default router;

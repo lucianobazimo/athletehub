@@ -34,6 +34,7 @@ import useFormRules from '@/core/composables/useFormRules';
 import { useLoginMutation } from '@/entities/user/hooks';
 import { useToast } from '@/core/ui/toast';
 import { useRouter } from 'vue-router';
+import { useCookies } from '@vueuse/integrations/useCookies';
 import Input from '@/core/ui/input/Input.vue';
 import Label from '@/core/ui/label/Label.vue';
 import Button from '@/core/ui/button/Button.vue';
@@ -42,6 +43,7 @@ const { t } = useI18n();
 const { rules } = useFormRules();
 const { isPending, mutateAsync } = useLoginMutation();
 const { toast } = useToast();
+const cookies = useCookies();
 const router = useRouter();
 
 const form = reactive({
@@ -68,8 +70,11 @@ const handleFormSubmit = async () => {
   if (!isFormValid) return;
 
   try {
-    await mutateAsync(form);
-    router.push({ name: 'Dashboard' });
+    const response = await mutateAsync(form);
+    cookies.set('token', response.token);
+    cookies.set('tokenExpirationDate', response.expiresAt);
+
+    router.push({ name: 'Dashboard'});
   } catch {
     toast({
       variant: 'destructive',

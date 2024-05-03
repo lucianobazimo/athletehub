@@ -1,8 +1,14 @@
 import axios from 'axios';
+import UniversalCookie from 'universal-cookie';
+
+const cookies = new UniversalCookie(null, { path: '/'})
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: true
+  withCredentials: true,
+  headers: {
+    'Authorization': `Bearer ${cookies.get('token')}`
+  }
 });
 
 api.interceptors.request.use(
