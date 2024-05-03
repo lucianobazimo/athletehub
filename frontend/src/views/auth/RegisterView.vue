@@ -21,7 +21,7 @@
         <span class="text-blue-600 underline"
           ><router-link :to="{ name: 'Login' }">{{
             $t('register.haveAccount.login')
-          }}</router-link></span
+          }}</router-link></span>
         >
       </div>
     </div>
