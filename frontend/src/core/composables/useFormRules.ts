@@ -11,7 +11,7 @@ const useFormRules = () => {
       helpers.withMessage(t('form.validation.minLength', { length }), minLength(length)),
     sameAs: (field: any) => helpers.withMessage(t('form.validation.sameAs'), sameAs(field)),
     alpha: helpers.withMessage(t('form.validation.alpha'), alpha),
-    password: () =>
+    password: (value: string) =>
       helpers.withMessage(t('form.validation.password'), (value: string) =>
         /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/.test(value)
       )
