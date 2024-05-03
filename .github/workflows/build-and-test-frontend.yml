@@ -5,9 +5,11 @@ name: Build and test frontend CI
 
 on:
   pull_request:
-    branches:
-      - main
-    types: [opened, labeled]
+    types:
+      - opened
+      - reopened
+      - labeled
+      - synchronize
 
 jobs:
   build:
