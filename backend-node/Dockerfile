@@ -2,7 +2,7 @@
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 ARG NODE_VERSION=20.9
 
-FROM node:${NODE_VERSION}-slim as base
+FROM node:${NODE_VERSION}-alpine as base
 
 WORKDIR /usr/src/app
 
@@ -37,5 +37,5 @@ COPY --from=prerelease /usr/src/app/package.json .
 COPY --from=prerelease /usr/src/app/.env.production ./build/.env
 
 # run the app
-EXPOSE 3333/tcp
+EXPOSE 3000
 ENTRYPOINT [ "node", "./build/bin/server.js" ]
