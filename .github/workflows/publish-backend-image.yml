@@ -15,7 +15,7 @@ jobs:
       attestations: write
 
     env:
-      REGISTRY: ghcr.io
+      REGISTRY: lgriffithdev
       IMAGE_NAME: ${{ github.repository }}
 
     steps:
@@ -40,6 +40,7 @@ jobs:
         uses: docker/build-push-action@v5.0.0
         with:
           context: ./backend-node
+          file: ./backend-node/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: Attest
