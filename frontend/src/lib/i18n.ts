@@ -8,7 +8,7 @@ const i18n = createI18n({
   globalInjection: true,
   legacy: false,
   availableLocales: ['fr', 'en'],
-  messages: { fr, en }
+  messages: { fr, en },
 });
 
 export default i18n;

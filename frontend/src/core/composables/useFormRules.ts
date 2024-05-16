@@ -13,8 +13,8 @@ const useFormRules = () => {
     alpha: helpers.withMessage(t('form.validation.alpha'), alpha),
     password: (value: string) =>
       helpers.withMessage(t('form.validation.password'), (value: string) =>
-        /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/.test(value)
-      )
+        /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/.test(value),
+      ),
   };
 
   return { rules };

@@ -9,9 +9,9 @@
 
       <div class="flex flex-1 gap-x-2">
         <Button variant="outline" class="flex flex-1">{{ $t('login.google') }}</Button>
-        <Button variant="outline" class="flex flex-1"
-          ><Linkedin class="w-4 h-4 mr-2" />{{ $t('login.linkedin') }}</Button
-        >
+        <Button variant="outline" class="flex flex-1">
+          <Linkedin class="w-4 h-4 mr-2" />{{ $t('login.linkedin') }}
+        </Button>
       </div>
 
       <Separator />
@@ -21,7 +21,7 @@
         <span class="text-blue-600 underline"
           ><router-link :to="{ name: 'Login' }">{{
             $t('register.haveAccount.login')
-          }}</router-link></span>
+          }}</router-link></span
         >
       </div>
     </div>

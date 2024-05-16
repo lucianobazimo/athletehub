@@ -62,4 +62,4 @@ npm run lint
 
 ### Deploy to AWS Amplify Console
 
-[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/username/repository)
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://eu-west-3.console.aws.amazon.com/amplify/home?region=eu-west-3#/d1pwyblao2grzr)
