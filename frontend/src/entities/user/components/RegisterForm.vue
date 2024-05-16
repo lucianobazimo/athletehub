@@ -7,8 +7,7 @@
         :is-error="formValidation.email.$error"
         :field-errors="formValidation.email.$errors"
         :placeholder="t('login.form.email.placeholder')"
-        type="email"
-      />
+        type="email" />
     </div>
 
     <div>
@@ -18,8 +17,7 @@
         :is-error="formValidation.username.$error"
         :field-errors="formValidation.username.$errors"
         :placeholder="t('login.form.username.placeholder')"
-        type="text"
-      />
+        type="text" />
     </div>
 
     <div class="grid grid-cols-2 gap-x-2">
@@ -30,8 +28,7 @@
           :is-error="formValidation.firstname.$error"
           :field-errors="formValidation.firstname.$errors"
           :placeholder="t('login.form.firstname.placeholder')"
-          type="text"
-        />
+          type="text" />
       </div>
 
       <div>
@@ -41,8 +38,7 @@
           :is-error="formValidation.lastname.$error"
           :field-errors="formValidation.lastname.$errors"
           :placeholder="t('login.form.lastname.placeholder')"
-          type="text"
-        />
+          type="text" />
       </div>
     </div>
 
@@ -53,8 +49,7 @@
         :is-error="formValidation.password.$error"
         :field-errors="formValidation.password.$errors"
         :placeholder="t('login.form.password.placeholder')"
-        type="password"
-      />
+        type="password" />
     </div>
 
     <div>
@@ -64,8 +59,7 @@
         :is-error="formValidation.passwordRepeat.$error"
         :field-errors="formValidation.passwordRepeat.$errors"
         :placeholder="t('login.form.passwordRepeat.placeholder')"
-        type="password"
-      />
+        type="password" />
     </div>
 
     <div class="mt-3 flex flex-1">
@@ -97,34 +91,34 @@ const form = reactive({
   firstname: '',
   lastname: '',
   password: '',
-  passwordRepeat: ''
+  passwordRepeat: '',
 });
 
 const formRules = computed(() => ({
   email: {
     required: rules.required,
-    email: rules.email
+    email: rules.email,
   },
   username: {
     required: rules.required,
-    minLength: rules.minLength(4)
+    minLength: rules.minLength(4),
   },
   firstname: {
     required: rules.required,
-    alpha: rules.alpha
+    alpha: rules.alpha,
   },
   lastname: {
     required: rules.required,
-    alpha: rules.alpha
+    alpha: rules.alpha,
   },
   password: {
     required: rules.required,
-    password: rules.password(form.password)
+    password: rules.password(form.password),
   },
   passwordRepeat: {
     required: rules.required,
-    sameAs: rules.sameAs(form.password)
-  }
+    sameAs: rules.sameAs(form.password),
+  },
 }));
 
 const formValidation = useVuelidate(formRules, form);
@@ -141,18 +135,18 @@ const handleFormSubmit = async () => {
       username: form.username,
       firstname: form.firstname,
       lastname: form.lastname,
-      password: form.password
+      password: form.password,
     });
 
     toast({
       title: t('register.success'),
-      description: t('register.emailVerification')
+      description: t('register.emailVerification'),
     });
   } catch {
     toast({
       variant: 'destructive',
       title: t('register.impossible'),
-      description: t('register.errorDescription')
+      description: t('register.errorDescription'),
     });
   }
 };

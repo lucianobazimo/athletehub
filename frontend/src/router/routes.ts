@@ -5,8 +5,8 @@ const routes = [
     component: () => import('@/views/auth/LoginView.vue'),
     meta: {
       layout: 'AuthLayout',
-      isPublic: true
-    }
+      isPublic: true,
+    },
   },
   {
     name: 'Register',
@@ -14,17 +14,17 @@ const routes = [
     component: () => import('@/views/auth/RegisterView.vue'),
     meta: {
       layout: 'AuthLayout',
-      isPublic: true
-    }
+      isPublic: true,
+    },
   },
   {
     name: 'Dashboard',
     path: '/',
     component: () => import('@/views/dashboard/HomeView.vue'),
     meta: {
-      layout: 'DashboardLayout'
-    }
-  }
+      layout: 'DashboardLayout',
+    },
+  },
 ];
 
 export default routes;
