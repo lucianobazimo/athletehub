@@ -11,4 +11,6 @@ type TeamSportProps = {
   sport: TeamSportEnum
 }
 
-export default class TeamSport extends ValueObject<TeamSportProps> {}
+export default class TeamSport extends ValueObject<TeamSportProps> {
+  
+}

@@ -37,5 +37,5 @@ COPY --from=prerelease /usr/src/app/package.json .
 COPY --from=prerelease /usr/src/app/.env.production ./build/.env
 
 # run the app
-EXPOSE 3000/tcp
+EXPOSE 3333/tcp
 ENTRYPOINT [ "node", "./build/bin/server.js" ]

@@ -16,7 +16,9 @@ router.beforeEach(async (to, _, next) => {
 
   const { setIsAuthenticated, isAuthenticated } = useAuthStore();
   if (isAuthenticated) {
-    if (!to.meta.isPublic) next();
+    if (!to.meta.isPublic) {
+      next();
+    } 
     if (to.meta.isPublic) next('/');
   } else {
     if (token) {
@@ -25,6 +27,7 @@ router.beforeEach(async (to, _, next) => {
         setIsAuthenticated(true);
 
         if (to.meta.isPublic) next('/');
+        next();
       } catch {
         setIsAuthenticated(false);
         if (to.meta.isPublic) next();
@@ -33,7 +36,7 @@ router.beforeEach(async (to, _, next) => {
       }
     } else {
       if (to.meta.isPublic) next();
-      if (!to.meta.isPublic) next('/login')
+      if (!to.meta.isPublic) next('/login');
     }
   }
 });

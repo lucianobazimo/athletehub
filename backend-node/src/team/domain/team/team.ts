@@ -2,10 +2,12 @@ import { DateTime } from 'luxon'
 import { Aggregate, Ok, Result } from 'rich-domain'
 import TeamName from './team_name.js'
 import TeamId from './team_id.js'
+import TeamSport from './team_sport.js'
 
 interface TeamProps {
   id: TeamId
   name: TeamName
+  sport: TeamSport
   createdAt?: DateTime
   updatedAt?: DateTime
 }

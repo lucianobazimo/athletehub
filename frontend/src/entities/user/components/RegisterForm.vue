@@ -7,8 +7,7 @@
         :is-error="formValidation.email.$error"
         :field-errors="formValidation.email.$errors"
         :placeholder="t('login.form.email.placeholder')"
-        type="email"
-      />
+        type="email" />
     </div>
 
     <div>
@@ -18,8 +17,7 @@
         :is-error="formValidation.username.$error"
         :field-errors="formValidation.username.$errors"
         :placeholder="t('login.form.username.placeholder')"
-        type="text"
-      />
+        type="text" />
     </div>
 
     <div class="grid grid-cols-2 gap-x-2">
@@ -30,8 +28,7 @@
           :is-error="formValidation.firstname.$error"
           :field-errors="formValidation.firstname.$errors"
           :placeholder="t('login.form.firstname.placeholder')"
-          type="text"
-        />
+          type="text" />
       </div>
 
       <div>
@@ -41,8 +38,7 @@
           :is-error="formValidation.lastname.$error"
           :field-errors="formValidation.lastname.$errors"
           :placeholder="t('login.form.lastname.placeholder')"
-          type="text"
-        />
+          type="text" />
       </div>
     </div>
 
@@ -53,8 +49,7 @@
         :is-error="formValidation.password.$error"
         :field-errors="formValidation.password.$errors"
         :placeholder="t('login.form.password.placeholder')"
-        type="password"
-      />
+        type="password" />
     </div>
 
     <div>
@@ -64,8 +59,7 @@
         :is-error="formValidation.passwordRepeat.$error"
         :field-errors="formValidation.passwordRepeat.$errors"
         :placeholder="t('login.form.passwordRepeat.placeholder')"
-        type="password"
-      />
+        type="password" />
     </div>
 
     <div class="mt-3 flex flex-1">

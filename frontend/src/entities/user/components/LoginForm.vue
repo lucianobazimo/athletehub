@@ -7,8 +7,7 @@
         :is-error="formValidation.email.$error"
         :field-errors="formValidation.email.$errors"
         :placeholder="t('login.form.email.placeholder')"
-        type="email"
-      />
+        type="email" />
     </div>
 
     <div>
@@ -18,8 +17,7 @@
         :is-error="formValidation.password.$error"
         :field-errors="formValidation.password.$errors"
         :placeholder="t('login.form.password.placeholder')"
-        type="password"
-      />
+        type="password" />
     </div>
 
     <Button type="submit">Se connecter</Button>
