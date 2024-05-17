@@ -24,7 +24,7 @@ export default class UserUsername extends ValueObject<Props> {
   static create({ username }: Props): Result<UserUsername> {
     if (!this.isValidProps({ username }))
       return Fail(
-        `Username must have a length between ${UserUsername.MIN_WIDTH} and ${UserUsername.MAX_WIDTH}`
+        `Username must have a length between ${UserUsername.MIN_WIDTH} and ${UserUsername.MAX_WIDTH} characters`
       )
 
     return Ok(new UserUsername({ username }))

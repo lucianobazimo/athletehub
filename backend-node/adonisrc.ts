@@ -32,7 +32,6 @@ export default defineConfig({
     () => import('@adonisjs/core/providers/vinejs_provider'),
     () => import('@adonisjs/cors/cors_provider'),
     () => import('@adonisjs/lucid/database_provider'),
-    () => import('@adonisjs/auth/auth_provider'),
     () => import('@adonisjs/i18n/i18n_provider'),
   ],
 
@@ -61,12 +60,12 @@ export default defineConfig({
   tests: {
     suites: [
       {
-        files: ['tests/unit/**/*.spec(.ts|.js)'],
+        files: ['src/**/*.test(.ts|.js)'],
         name: 'unit',
         timeout: 2000,
       },
       {
-        files: ['tests/functional/**/*.spec(.ts|.js)'],
+        files: ['src/**/*.test(.ts|.js)'],
         name: 'functional',
         timeout: 30000,
       },
