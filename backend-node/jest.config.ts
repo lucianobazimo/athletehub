@@ -7,7 +7,7 @@ const config: Config = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: `<rootDir>${compilerOptions.baseUrl}`,
   }),
-  modulePaths: ['<rootDir>'],
+  modulePaths: ['<rootDir>/src'],
 }
 
 export default config
