@@ -23,7 +23,7 @@ export default class UserId extends ValueObject<Props> {
     return Ok(new UserId({ id }))
   }
 
-  static hydrate({ id }: Props): Result<UserId> {
-    return Ok(new UserId({ id }))
+  static hydrate({ id }: Props): UserId {
+    return new UserId({ id })
   }
 }

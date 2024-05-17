@@ -34,7 +34,7 @@ export default class UserFirstname extends ValueObject<Props> {
     return Ok(new UserFirstname({ firstname }))
   }
 
-  static hydrate({ firstname }: Props): Result<UserFirstname> {
-    return Ok(new UserFirstname({ firstname }))
+  static hydrate({ firstname }: Props): UserFirstname {
+    return new UserFirstname({ firstname })
   }
 }
