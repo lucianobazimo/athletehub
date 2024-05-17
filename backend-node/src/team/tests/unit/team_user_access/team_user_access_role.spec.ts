@@ -1,6 +1,6 @@
 import TeamUserAccessRole, {
   TeamUserAccessRoleEnum,
-} from '#team/domain/team_user_access/team_user_access_role'
+} from '#team/domain/aggregates/team_user_access/team_user_access_role'
 import { describe, expect, it } from '@jest/globals'
 
 describe('team user access role', () => {

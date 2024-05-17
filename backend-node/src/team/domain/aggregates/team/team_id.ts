@@ -14,7 +14,7 @@ export default class TeamId extends ValueObject<Props> {
   }
 
   static isValidProps({ id }: Props): boolean {
-    return id.length > 0
+    return Boolean(id.length)
   }
 
   static new(): Result<TeamId> {

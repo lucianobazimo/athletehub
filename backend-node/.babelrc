@@ -18,6 +18,7 @@
         "alias": {
           "#shared": "./src/shared",
           "#main": "./src/main",
+          "#team": "./src/team",
           "#controllers": "./src/infrastructure/controllers",
           "#middleware": "./src/infrastructure/middleware",
           "#providers": "./providers",
