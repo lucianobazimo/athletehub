@@ -35,6 +35,7 @@ COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app .
 COPY --from=prerelease /usr/src/app/package.json .
 COPY --from=prerelease /usr/src/app/.env.production ./build/.env
+COPY --from=prerelease /usr/src/app/.env.production .env
 
 # run the app
 EXPOSE 3000
