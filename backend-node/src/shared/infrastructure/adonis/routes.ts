@@ -14,8 +14,6 @@ router
   })
   .prefix('/auth')
 
-router.get('/', () => 'hello world pignouf')
-
 router
   .group(() => {
     router.get('/', () => 'hello world')

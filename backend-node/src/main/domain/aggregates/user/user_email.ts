@@ -23,7 +23,7 @@ export default class UserEmail extends ValueObject<Props> {
     return Ok(new UserEmail({ email }))
   }
 
-  static hydrate({ email }: Props): Result<UserEmail> {
-    return Ok(new UserEmail({ email }))
+  static hydrate({ email }: Props): UserEmail {
+    return new UserEmail({ email })
   }
 }
